@@ -10,7 +10,7 @@ import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--train_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/b_00')
-parser.add_argument('--val_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/val_set')
+parser.add_argument('--val_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/valset')
 parser.add_argument('--output_file',default='/nfs/bigdisk/zhshu/Datasets/mega_256_00.h5')
 parser.add_argument('--height',type=int,default=256)
 parser.add_argument('--width',type=int,default=256)
