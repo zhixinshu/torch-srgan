@@ -51,10 +51,10 @@ trainSets[6] = '/nfs/bigdisk/zhshu/Datasets/mega_256_05.h5'
 trainSets[7] = '/nfs/bigdisk/zhshu/Datasets/mega_256_06.h5'
 trainSets[8] = '/nfs/bigdisk/zhshu/Datasets/mega_256_07.h5'
 trainSets[9] = '/nfs/bigdisk/zhshu/Datasets/mega_256_08.h5'
-trainSets[10] = '/nfs/bigdisk/zhshu/Datasets/mega_256_09.hdf5'
-trainSets[11] = '/nfs/bigdisk/zhshu/Datasets/mega_256_10.hdf5'
-trainSets[12] = '/nfs/bigdisk/zhshu/Datasets/mega_256_11.hdf5'
-trainSets[13] = '/nfs/bigdisk/zhshu/Datasets/mega_256_12.hdf5'
+trainSets[10] = '/nfs/bigdisk/zhshu/Datasets/mega_256_09.h5'
+trainSets[11] = '/nfs/bigdisk/zhshu/Datasets/mega_256_10.h5'
+trainSets[12] = '/nfs/bigdisk/zhshu/Datasets/mega_256_11.h5'
+trainSets[13] = '/nfs/bigdisk/zhshu/Datasets/mega_256_12.h5'
 nTrainSet = 13
 --
 
