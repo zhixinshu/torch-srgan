@@ -79,7 +79,7 @@ function main()
 
 	local criterion = nn.MSECriterion():type(dtype)
 
-	local loader = DataLoader(opt)
+	--local loader = DataLoader(opt)
 	local params, grad_params = model:getParameters()
 
 	-- Load percep model
