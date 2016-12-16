@@ -9,9 +9,9 @@ import h5py
 import time
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--train_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/b_07')
+parser.add_argument('--train_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/b_08')
 parser.add_argument('--val_dir',default='/nfs/bigdisk/zhshu/MegaFace_sub/up1024/res256/valset')
-parser.add_argument('--output_file',default='/nfs/bigdisk/zhshu/Datasets/mega_256_07.h5')
+parser.add_argument('--output_file',default='/nfs/bigdisk/zhshu/Datasets/mega_256_08.h5')
 parser.add_argument('--height',type=int,default=256)
 parser.add_argument('--width',type=int,default=256)
 parser.add_argument('--scale',type=int,default=4)
