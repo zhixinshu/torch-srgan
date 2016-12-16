@@ -11,7 +11,7 @@ local c = require 'trepl.colorize'
 local cmd = torch.CmdLine()
 -- Generic options
 cmd:option('-h5_file','/data/imagenet-val-192.h5')
-cmd:option('-val_img','./imgs/comic_input.bmp')
+cmd:option('-val_img','./imgs/test4.bmp')
 cmd:option('-val_output','./val/')
 cmd:option('-residual_blocks', 15)
 cmd:option('-deconvolution_type','sub_pixel','sub_pixel|fullconvolution')
@@ -22,7 +22,7 @@ cmd:option('-percep_layer', 'conv2_2', 'conv2_2|conv5_4')
 cmd:option('-percep_model', './models/VGG19.t7')
 cmd:option('-use_tanh', false)
 -- Optimization
-cmd:option('-num_epoch', 100)
+cmd:option('-num_epoch', 1000)
 cmd:option('-batch_size', 16)
 cmd:option('-learning_rate', 1e-3)
 cmd:option('-beta1', 0.9)
@@ -32,11 +32,31 @@ cmd:option('-random_flip', true)
 cmd:option('-resume_from_checkpoint', '')
 cmd:option('-resume_epoch',0)
 cmd:option('-checkpoint_name', './checkpoint/checkpoint')
-cmd:option('-checkpoint_every', 1)
+cmd:option('-checkpoint_every', 50)
 -- Backend options
 cmd:option('-gpu', 0)
 cmd:option('-use_cudnn', 1)
 cmd:option('-backend', 'cuda')
+
+
+--
+
+trainSets = {}
+trainSets[1] = '/nfs/bigdisk/zhshu/Datasets/mega_256_00.h5'
+trainSets[2] = '/nfs/bigdisk/zhshu/Datasets/mega_256_01.h5'
+trainSets[3] = '/nfs/bigdisk/zhshu/Datasets/mega_256_02.h5'
+trainSets[4] = '/nfs/bigdisk/zhshu/Datasets/mega_256_03.h5'
+trainSets[5] = '/nfs/bigdisk/zhshu/Datasets/mega_256_04.h5'
+trainSets[6] = '/nfs/bigdisk/zhshu/Datasets/mega_256_05.h5'
+trainSets[7] = '/nfs/bigdisk/zhshu/Datasets/mega_256_06.h5'
+trainSets[8] = '/nfs/bigdisk/zhshu/Datasets/mega_256_07.h5'
+trainSets[9] = '/nfs/bigdisk/zhshu/Datasets/mega_256_08.h5'
+trainSets[10] = '/nfs/bigdisk/zhshu/Datasets/mega_256_09.hdf5'
+trainSets[11] = '/nfs/bigdisk/zhshu/Datasets/mega_256_10.hdf5'
+trainSets[12] = '/nfs/bigdisk/zhshu/Datasets/mega_256_11.hdf5'
+trainSets[13] = '/nfs/bigdisk/zhshu/Datasets/mega_256_12.hdf5'
+nTrainSet = 13
+--
 
 function main()
 	local opt = cmd:parse(arg)
@@ -123,6 +143,13 @@ function main()
 	local val_loss_history = {}
 	-- Training
 	for epoch = opt.resume_epoch + 1, opt.num_epoch do
+
+		-- loader
+		train_idx = math.random(nTrainSet)
+  		print("Working on subset: ", trainSets[train_idx]) 
+		opt.h5_file = trainSets[train_idx]
+		loader = DataLoader(opt)
+
 		local tic = torch.tic()
 		print(c.blue '==>'.." online epoch # " .. epoch .. ' [batchSize = ' .. opt.batch_size .. ' lr = ' .. optim_state.learningRate .. ']')
 		local loss_epoch = 0
@@ -211,4 +238,4 @@ end
 
 main()
 
-
+print("Finished..")
