@@ -39,3 +39,12 @@ luac.out
 *.x86_64
 *.hex
 
+
+# Directories
+cache/*
+results/*
+checkpoints/*
+datasets/*
+models/*
+data/*
+log*
