@@ -154,6 +154,7 @@ function main()
 		print(c.blue '==>'.." online epoch # " .. epoch .. ' [batchSize = ' .. opt.batch_size .. ' lr = ' .. optim_state.learningRate .. ']')
 		local loss_epoch = 0
 		for t = 1, loader.num_minibatches['train'] do
+			-- the actual step of training is here:
 			local _, loss_batch = optim.adam(f, params, optim_state)
 			loss_epoch = loss_epoch + loss_batch[1]
 			if opt.debug then
